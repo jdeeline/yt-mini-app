@@ -2,5 +2,6 @@
 export enum AppRoutes {
   Home = '/',
   Watch = '/watch/:videoId',
+  History = '/history',
   NotFound = '*',
 }

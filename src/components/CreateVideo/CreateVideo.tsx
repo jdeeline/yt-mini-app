@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '@/constants';
 import { validateUrl, createVideoFromUrl } from '@utils/video';
 import { Video } from '@/types';
+import useLocalStorage from '@hooks/useLocalStorage';
 import './CreateVideo.css';
 
 const createWatchTo = ({ videoId, timestamp }: Video): string => {
@@ -12,6 +13,7 @@ const createWatchTo = ({ videoId, timestamp }: Video): string => {
 
 function CreateVideo() {
   const [query, setQuery] = useState('');
+  const [history, setHistory] = useLocalStorage<Video[]>('history', []);
   const navigate = useNavigate();
 
   const isValidUrl = validateUrl(query);
@@ -21,6 +23,7 @@ function CreateVideo() {
 
     if (isValidUrl) {
       const video = createVideoFromUrl(query);
+      await setHistory([...history, video]);
       navigate(createWatchTo(video));
     }
   };
