@@ -1,0 +1,18 @@
+.not-found {
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  height: 100vh;
+}
+
+.not-found__title {
+  font-size: 4em;
+  font-weight: 500;
+}
+
+.not-found__text {
+  font-size: 1.25em;
+}

@@ -56,5 +56,43 @@
                 "tsx": "never"
             }
         ]
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    [
+                        "@",
+                        "./src"
+                    ],
+                    [
+                        "@app",
+                        "./src/app"
+                    ],
+                    [
+                        "@components",
+                        "./src/components"
+                    ],
+                    [
+                        "@hooks",
+                        "./src/hooks"
+                    ],
+                    [
+                        "@pages",
+                        "./src/pages"
+                    ],
+                    [
+                        "@utils",
+                        "./src/utils"
+                    ]
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
     }
 }

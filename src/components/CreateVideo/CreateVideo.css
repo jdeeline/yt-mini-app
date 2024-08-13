@@ -1,0 +1,33 @@
+.create-video {
+    column-gap: 1em;
+    display: flex;
+    width: 100%;
+}
+
+.create-video input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    flex-grow: 1;
+    font-size: 1em;
+    line-height: 1;
+    outline: none;
+    padding: 0.375em 0.75em;
+}
+
+.create-video button {
+    background-color: #080;
+    border: none;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 1em;
+    line-height: 1;
+    outline: none;
+    padding: 0.375em 0.75em;
+}
+
+.create-video button:disabled {
+    opacity: 0.5;
+}
