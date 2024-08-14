@@ -1,8 +1,8 @@
 import { createEmbedUrl } from '@utils/video';
-import { VideoProp } from '@/types';
+import { VideoProps } from '@/types';
 import './VideoPlayer.css';
 
-function VideoPlayer(props: VideoProp) {
+function VideoPlayer(props: VideoProps) {
   const url = createEmbedUrl(props);
 
   return (

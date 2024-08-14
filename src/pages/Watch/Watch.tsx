@@ -1,10 +1,10 @@
 import { useParams, useSearchParams } from 'react-router-dom';
 import VideoPlayer from '@components/VideoPlayer/VideoPlayer';
-import { VideoProp } from '@/types';
+import { VideoProps } from '@/types';
 
-type RouteParams = Pick<VideoProp, 'videoId'>;
+type RouteParams = Pick<VideoProps, 'videoId'>;
 
-type TimestampParam = VideoProp['timestamp'];
+type TimestampParam = VideoProps['timestamp'];
 
 function Watch() {
   const { videoId } = useParams<RouteParams>() as RouteParams;

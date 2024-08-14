@@ -4,4 +4,4 @@ export type Video = {
   createdAt: number;
 };
 
-export type VideoProp = Omit<Video, 'createdAt'>;
+export type VideoProps = Omit<Video, 'createdAt'>;
