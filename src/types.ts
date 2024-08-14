@@ -1,5 +1,7 @@
 export type Video = {
   videoId: string;
   timestamp: number | null;
-  createdAt?: number;
+  createdAt: number;
 };
+
+export type VideoProp = Omit<Video, 'createdAt'>;

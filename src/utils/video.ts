@@ -1,4 +1,4 @@
-import { Video } from '@/types';
+import { Video, VideoProp } from '@/types';
 
 const YT_VIDEO_URL_REGEX =
   /^https?:\/\/(www\.youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)[\w-]+([?&][^?&]+)*/i;
@@ -19,7 +19,7 @@ export const createVideoFromUrl = (url: string): Video => {
   };
 };
 
-export const createEmbedUrl = ({ videoId, timestamp }: Video) => {
+export const createEmbedUrl = ({ videoId, timestamp }: VideoProp) => {
   const queryParams = new URLSearchParams({
     rel: '0',
   });
