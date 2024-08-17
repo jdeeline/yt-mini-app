@@ -1,6 +1,7 @@
 # YouTube mini app
 
-Mini application for open YouTube videos and remembering history. Just for fun.
+A small single page application built with React to open YouTube videos and remember history.\
+Just for fun.
 
 ## Available Scripts
 
