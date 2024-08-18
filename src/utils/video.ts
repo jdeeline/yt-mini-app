@@ -1,16 +1,19 @@
 import { Video, VideoProps } from '@/types';
 
 const YT_VIDEO_URL_REGEX =
-  /^https?:\/\/(www\.youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)[\w-]+([?&][^?&]+)*/i;
-
-const toUrl = (url: string) => new URL(url);
+  /^https?:\/\/(?:www\.youtube\.com\/(?:watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]+)(?:[?&](?:t=(\d+)|\w+=[^&]+))*/i;
 
 export const validateUrl = (url: string) => YT_VIDEO_URL_REGEX.test(url);
 
 export const createVideoFromUrl = (url: string): Video => {
-  const parsedUrl = toUrl(url);
-  const videoId = parsedUrl.searchParams.get('v') as string;
-  const timestamp = parsedUrl.searchParams.get('t') as number | null;
+  const matches = url.match(YT_VIDEO_URL_REGEX);
+
+  if (!matches) {
+    throw new Error('Failed to extract parameters from URL');
+  }
+
+  const videoId = matches[1] as Video['videoId'];
+  const timestamp = (matches[2] ? Number(matches[2]) : null) as Video['timestamp'];
 
   return {
     videoId,
@@ -20,13 +23,13 @@ export const createVideoFromUrl = (url: string): Video => {
 };
 
 export const createEmbedUrl = ({ videoId, timestamp }: VideoProps) => {
-  const queryParams = new URLSearchParams({
+  const searchParams = new URLSearchParams({
     rel: '0',
   });
 
   if (timestamp) {
-    queryParams.append('start', timestamp.toString());
+    searchParams.append('start', timestamp.toString());
   }
 
-  return `https://www.youtube.com/embed/${videoId}?${queryParams.toString()}`;
+  return `https://www.youtube.com/embed/${videoId}?${searchParams.toString()}`;
 };
